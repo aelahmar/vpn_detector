@@ -1,6 +1,6 @@
 name: vpn_detector
-description: Detect VPN connections
-version: 0.0.1
+description: Detect VPN connections on [Android , IOS]
+version: 1.0.0
 homepage:
 
 environment:
