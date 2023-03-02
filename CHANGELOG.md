@@ -1,3 +1,4 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+### What's Changed
+* Detect VPN active connections on Android and IOS Platforms
