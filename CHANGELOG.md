@@ -2,6 +2,7 @@
 
 ### What's Changed
 * Enhanced documentation in the README.md
+* Upgraded dependencies to the latest versions
 
 ## 1.0.0
 
