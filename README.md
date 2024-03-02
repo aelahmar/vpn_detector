@@ -1,15 +1,25 @@
-# vpn_detector
+# VPN Detector 🛡️
 
-Detect VPN connections
+A package created out of a real need for precuse VPN detection on iOS and Android devices.
 
-## Getting Started
+## Features 🎛️
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+- ✅ Detects iOS and Android VPN connections in a reliable manner.
+- 🧪 Fully testable code with no static methods, facilitating a TDD approach.
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Usage 🔧
 
+Using the VPN Detector package is straightforward. Simply import the package into your project and use the following code snippet to check if a VPN connection is active:
+
+```dart
+import 'package:vpn_detector/vpn_detector.dart';
+
+final isVpnActive = await VpnDetector().isVpnActive();
+```
+
+## Contributing 👨‍💻
+
+You can contribute by either:
+1. Making a Pull Request 🛠️
+2. Opening an Issue 🐛
+ 
