@@ -1,6 +1,6 @@
-# vpn_detector_example
+# example_1
 
-Demonstrates how to use the vpn_detector plugin.
+A new Flutter project.
 
 ## Getting Started
 
