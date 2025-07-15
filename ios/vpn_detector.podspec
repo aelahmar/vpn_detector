@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'vpn_detector'
-  s.version          = '0.0.1'
+  s.version          = '1.1.0'
   s.summary          = 'Detect VPN connection status'
   s.description      = <<-DESC
     vpn_detector is a Flutter plugin that lets your app detect whether
