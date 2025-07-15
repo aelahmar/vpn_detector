@@ -1,3 +1,10 @@
+## 1.1.0
+
+### What's Changed
+
+- **Android**: Updated to `compileSdk=33`, `minSdk=21`, `targetSdk=33`.
+- **iOS**: Minimum deployment target set to `iOS 13.0`, Swift `5`.
+
 ## 1.0.1
 
 ### What's Changed

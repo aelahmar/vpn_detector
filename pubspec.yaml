@@ -1,11 +1,11 @@
 name: vpn_detector
-description: Detect VPN connections on [Android and IOS]
-version: 1.0.1
+description: Detect VPN connections on [Android and iOS]
+version: 1.1.0
 repository: https://github.com/aelahmar/vpn_detector
 
 environment:
-  sdk: ">=2.18.5 <3.0.0"
-  flutter: ">=3.3.9"
+  sdk: ">=2.18.5 <4.0.0"
+  flutter: ">=3.32.4"
 
 dependencies:
   flutter:
@@ -15,7 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
+  flutter_lints: 6.0.0
 
 flutter:
   plugin:

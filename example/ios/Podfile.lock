@@ -14,9 +14,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/vpn_detector/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  vpn_detector: 8bf278b5915ad256b9693ff8711eac93f8651fce
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  vpn_detector: bd0dfc923878a1ce828823d99d21af61438260fc
 
-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+PODFILE CHECKSUM: f3734cf2c64ab93db34ebd0461528389a119c1e8
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.16.2
