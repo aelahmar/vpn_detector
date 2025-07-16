@@ -5,7 +5,7 @@ repository: https://github.com/aelahmar/vpn_detector
 
 environment:
   sdk: ">=2.18.5 <4.0.0"
-  flutter: ">=3.32.4"
+  flutter: ">=3.7.0"
 
 dependencies:
   flutter:
