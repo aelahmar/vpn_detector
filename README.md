@@ -1,6 +1,6 @@
 # VPN Detector 🛡️
 
-A package created out of a real need for precuse VPN detection on iOS and Android devices.
+A package created out of a real need for precise VPN detection on iOS and Android devices.
 
 ## Features 🎛️
 
