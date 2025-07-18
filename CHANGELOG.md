@@ -2,6 +2,12 @@
 
 ### What's Changed
 
+- Documentation dart api
+
+## 1.1.0
+
+### What's Changed
+
 - **Android**: Updated to `compileSdk=35`, `minSdk=21`, `targetSdk=35`.
 - **iOS**: Minimum deployment target set to `iOS 13.0`, Swift `5`.
 
