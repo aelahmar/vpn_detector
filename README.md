@@ -1,7 +1,7 @@
 # VPN Detector 🛡️
 
 [![Pub Version](https://img.shields.io/pub/v/vpn_detector)](https://pub.dev/packages/vpn_detector)  
-[![License](https://img.shields.io/pub/l/vpn_detector)](LICENSE)
+[![codecov](https://codecov.io/github/aelahmar/vpn_detector/graph/badge.svg?token=090RC225BD)](https://codecov.io/github/aelahmar/vpn_detector)
 
 A Flutter package for reliable VPN detection on iOS and Android, featuring a clean, testable API and real-time status updates.
 
