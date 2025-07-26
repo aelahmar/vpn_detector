@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the isVpnActive method from the VpnDetector class, for the Dart programming language.">
-  <title>isVpnActive method - VpnDetector class - vpn_detector library - Dart API</title>
+  <meta name="description" content="API docs for the onVpnStatusChanged property from the VpnDetector class, for the Dart programming language.">
+  <title>onVpnStatusChanged property - VpnDetector class - vpn_detector library - Dart API</title>
 
 
   
@@ -27,9 +27,9 @@
     <li><a href="../../index.html">vpn_detector</a></li>
     <li><a href="../../vpn_detector/">vpn_detector.dart</a></li>
     <li><a href="../../vpn_detector/VpnDetector-class.html">VpnDetector</a></li>
-    <li class="self-crumb">isVpnActive method</li>
+    <li class="self-crumb">onVpnStatusChanged property</li>
   </ol>
-  <div class="self-name">isVpnActive</div>
+  <div class="self-name">onVpnStatusChanged</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -49,36 +49,40 @@
     data-above-sidebar="vpn_detector&#47;VpnDetector-class-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">isVpnActive</span> method 
+<h1><span class="kind-property">onVpnStatusChanged</span> property 
 </h1></div>
 
+    
+
+    
+        
+  <section id="getter">
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../vpn_detector/VpnStatus.html">VpnStatus</a></span>&gt;</span></span>
-<span class="name ">isVpnActive</span>(<wbr>)
-
+      <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../vpn_detector/VpnStatus.html">VpnStatus</a></span>&gt;</span></span>
+      get
+      <span class="name ">onVpnStatusChanged</span>
       
 
     </section>
     
 <section class="desc markdown">
-  <p>Checks whether VPN is active, returning a <a href="../../vpn_detector/VpnStatus.html">VpnStatus</a>.</p>
+  <p>A stream of <a href="../../vpn_detector/VpnStatus.html">VpnStatus</a> that updates whenever the connectivity changes.</p>
 </section>
-
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;VpnStatus&gt; isVpnActive() async {
-  final bool active = await _platform.isVpnActive();
-  return active ? VpnStatus.active : VpnStatus.notActive;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">Stream&lt;VpnStatus&gt; get onVpnStatusChanged =&gt;
+    _connectivity.onConnectivityChanged.asyncMap((_) =&gt; isVpnActive());</code></pre>
 </section>
 
+  </section>
 
-  </div> <!-- /.main-content -->
-  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+
+</div> <!-- /.main-content -->
+<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
@@ -88,13 +92,13 @@
     <li><a href="../../index.html">vpn_detector</a></li>
     <li><a href="../../vpn_detector/">vpn_detector</a></li>
     <li><a href="../../vpn_detector/VpnDetector-class.html">VpnDetector</a></li>
-    <li class="self-crumb">isVpnActive method</li>
+    <li class="self-crumb">onVpnStatusChanged property</li>
 </ol>
 
-    <h5>VpnDetector class</h5>
-    <div id="dartdoc-sidebar-left-content"></div>
-  </div><!--/.sidebar-offcanvas-->
-  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  <h5>VpnDetector class</h5>
+  <div id="dartdoc-sidebar-left-content"></div>
+</div><!--/.sidebar-offcanvas-->
+<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!--/.sidebar-offcanvas-->
 </main>
 <footer>

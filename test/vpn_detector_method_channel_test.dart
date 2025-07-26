@@ -3,59 +3,38 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:vpn_detector/vpn_detector_method_channel.dart';
 
 void main() {
-  late MethodChannelVpnDetector platform;
+  final binding = TestWidgetsFlutterBinding.ensureInitialized();
+  const channel = MethodChannel('vpn_detector');
+  final messenger = binding.defaultBinaryMessenger;
 
-  TestWidgetsFlutterBinding.ensureInitialized();
+  group('MethodChannelVpnDetector', () {
+    late MethodChannelVpnDetector platform;
 
-  setUp(() {
-    platform = MethodChannelVpnDetector();
-  });
+    setUp(() {
+      platform = MethodChannelVpnDetector();
+    });
 
-  tearDown(() {
-    TestWidgetsFlutterBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(platform.methodChannel, null);
-  });
+    tearDown(() {
+      messenger.setMockMessageHandler(channel.name, null);
+    });
 
-  group('isVpnActive |', () {
-    test(
-      'verify the result of isVpnActive '
-      'when platform channel returns true.',
-      () async {
-        TestWidgetsFlutterBinding.instance.defaultBinaryMessenger
-            .setMockMethodCallHandler(
-          platform.methodChannel,
-          (MethodCall methodCall) {
-            if (methodCall.method == 'isVpnActive') {
-              return Future.value(true);
-            }
+    test('returns true when native returns true', () async {
+      messenger.setMockMessageHandler(
+        channel.name,
+        (message) async =>
+            const StandardMethodCodec().encodeSuccessEnvelope(true),
+      );
+      expect(await platform.isVpnActive(), isTrue);
+    });
 
-            return null;
-          },
-        );
-
-        expect(await platform.isVpnActive(), true);
-      },
-    );
-
-    test(
-      'verify the result of isVpnActive '
-      'when platform channel returns false.',
-      () async {
-        TestWidgetsFlutterBinding.instance.defaultBinaryMessenger
-            .setMockMethodCallHandler(
-          platform.methodChannel,
-          (MethodCall methodCall) {
-            if (methodCall.method == 'isVpnActive') {
-              return Future.value(false);
-            }
-
-            return null;
-          },
-        );
-
-        expect(await platform.isVpnActive(), false);
-      },
-    );
+    test('returns false when native returns false', () async {
+      messenger.setMockMessageHandler(
+        channel.name,
+        (message) async =>
+            const StandardMethodCodec().encodeSuccessEnvelope(false),
+      );
+      expect(await platform.isVpnActive(), isFalse);
+    });
 
     test(
       'verify the result of isVpnActive '

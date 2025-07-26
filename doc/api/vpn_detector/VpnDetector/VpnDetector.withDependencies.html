@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the isVpnActive method from the VpnDetector class, for the Dart programming language.">
-  <title>isVpnActive method - VpnDetector class - vpn_detector library - Dart API</title>
+  <meta name="description" content="API docs for the VpnDetector.withDependencies constructor from Class VpnDetector from the vpn_detector library, for the Dart programming language.">
+  <title>VpnDetector.withDependencies constructor - VpnDetector - vpn_detector library - Dart API</title>
 
 
   
@@ -27,9 +27,9 @@
     <li><a href="../../index.html">vpn_detector</a></li>
     <li><a href="../../vpn_detector/">vpn_detector.dart</a></li>
     <li><a href="../../vpn_detector/VpnDetector-class.html">VpnDetector</a></li>
-    <li class="self-crumb">isVpnActive method</li>
+    <li class="self-crumb">VpnDetector.withDependencies constructor</li>
   </ol>
-  <div class="self-name">isVpnActive</div>
+  <div class="self-name">VpnDetector.withDependencies</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -43,36 +43,41 @@
   </button>
 </header>
 <main>
-<div
-    id="dartdoc-main-content"
-    class="main-content"
-    data-above-sidebar="vpn_detector&#47;VpnDetector-class-sidebar.html"
-    data-below-sidebar="">
-    <div>
-<h1><span class="kind-method">isVpnActive</span> method 
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="vpn_detector&#47;VpnDetector-class-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-constructor">VpnDetector.withDependencies</span> constructor 
 </h1></div>
 
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../vpn_detector/VpnStatus.html">VpnStatus</a></span>&gt;</span></span>
-<span class="name ">isVpnActive</span>(<wbr>)
-
-      
-
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://pub.dev/documentation/meta/1.16.0/meta/visibleForTesting-constant.html">visibleForTesting</a></li>
+    </ol>
+  </div>
+      <span class="name ">VpnDetector.withDependencies</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="withDependencies-param-connectivity"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/connectivity_plus/6.1.4/connectivity_plus/Connectivity-class.html">Connectivity</a></span> <span class="parameter-name">connectivity</span>, </span></li>
+<li><span class="parameter" id="withDependencies-param-platform"><span>required</span> <span class="type-annotation"><a href="../../vpn_detector_platform_interface/VpnDetectorPlatform-class.html">VpnDetectorPlatform</a></span> <span class="parameter-name">platform</span>, </span></li>
+</ol>})
     </section>
     
 <section class="desc markdown">
-  <p>Checks whether VPN is active, returning a <a href="../../vpn_detector/VpnStatus.html">VpnStatus</a>.</p>
+  <p>Creates a <a href="../../vpn_detector/VpnDetector-class.html">VpnDetector</a> with injected dependencies for testing.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;VpnStatus&gt; isVpnActive() async {
-  final bool active = await _platform.isVpnActive();
-  return active ? VpnStatus.active : VpnStatus.notActive;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">@visibleForTesting
+VpnDetector.withDependencies({
+  required Connectivity connectivity,
+  required VpnDetectorPlatform platform,
+})  : _connectivity = connectivity,
+      _platform = platform;</code></pre>
 </section>
 
 
@@ -88,14 +93,14 @@
     <li><a href="../../index.html">vpn_detector</a></li>
     <li><a href="../../vpn_detector/">vpn_detector</a></li>
     <li><a href="../../vpn_detector/VpnDetector-class.html">VpnDetector</a></li>
-    <li class="self-crumb">isVpnActive method</li>
+    <li class="self-crumb">VpnDetector.withDependencies constructor</li>
 </ol>
 
     <h5>VpnDetector class</h5>
     <div id="dartdoc-sidebar-left-content"></div>
-  </div><!--/.sidebar-offcanvas-->
+  </div><!--/.sidebar-offcanvas-left-->
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-</div><!--/.sidebar-offcanvas-->
+  </div><!--/.sidebar-offcanvas-->
 </main>
 <footer>
   <span class="no-break">

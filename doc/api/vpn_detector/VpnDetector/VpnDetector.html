@@ -27,7 +27,7 @@
     <li><a href="../../index.html">vpn_detector</a></li>
     <li><a href="../../vpn_detector/">vpn_detector.dart</a></li>
     <li><a href="../../vpn_detector/VpnDetector-class.html">VpnDetector</a></li>
-    <li class="self-crumb">VpnDetector.new constructor</li>
+    <li class="self-crumb">VpnDetector.new factory constructor</li>
   </ol>
   <div class="self-name">VpnDetector.new</div>
   <form class="search navbar-right" role="search">
@@ -57,9 +57,19 @@
       <span class="name ">VpnDetector</span>(<wbr>)
     </section>
     
+<section class="desc markdown">
+  <p>Creates a <a href="../../vpn_detector/VpnDetector-class.html">VpnDetector</a> with default dependencies.</p>
+</section>
 
 
     
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">factory VpnDetector() =&gt; VpnDetector.withDependencies(
+      connectivity: Connectivity(),
+      platform: VpnDetectorPlatform.instance,
+    );</code></pre>
+</section>
 
 
   </div> <!-- /.main-content -->
@@ -74,7 +84,7 @@
     <li><a href="../../index.html">vpn_detector</a></li>
     <li><a href="../../vpn_detector/">vpn_detector</a></li>
     <li><a href="../../vpn_detector/VpnDetector-class.html">VpnDetector</a></li>
-    <li class="self-crumb">VpnDetector.new constructor</li>
+    <li class="self-crumb">VpnDetector.new factory constructor</li>
 </ol>
 
     <h5>VpnDetector class</h5>
@@ -86,7 +96,7 @@
 <footer>
   <span class="no-break">
     vpn_detector
-      1.1.0
+      1.2.0
   </span>
   
 </footer>

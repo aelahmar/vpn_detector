@@ -44,24 +44,75 @@
       
 <section class="desc markdown">
   <h1 id="vpn-detector-">VPN Detector 🛡️</h1>
-<p>A package created out of a real need for precise VPN detection on iOS and Android devices.</p>
-<h2 id="features-">Features 🎛️</h2>
+<p><a href="https://pub.dev/packages/vpn_detector"><img src="https://img.shields.io/pub/v/vpn_detector" alt="Pub Version"></a><br>
+<a href="LICENSE"><img src="https://img.shields.io/pub/l/vpn_detector" alt="License"></a></p>
+<p>A Flutter package for reliable VPN detection on iOS and Android, featuring a clean, testable API and real-time status updates.</p>
+<h2 id="features">Features</h2>
 <ul>
-<li>✅ Detects iOS and Android VPN connections in a reliable manner.</li>
-<li>🧪 Fully testable code with no static methods, facilitating a TDD approach.</li>
+<li>✅ <strong>VPN Status</strong>: Check if a VPN connection is active, returning a <code>VpnStatus</code> enum (<code>active</code> or <code>notActive</code>).</li>
+<li>🔄 <strong>Real-time Updates</strong>: Listen to the <code>onVpnStatusChanged</code> stream to react whenever the VPN status changes.</li>
+<li>🧪 <strong>Testable by Design</strong>: Use <code>VpnDetector.withDependencies(...)</code> and <code>@visibleForTesting</code> hooks to inject fakes in your TDD suite.</li>
+<li>📦 <strong>Zero Static Calls</strong>: No hidden singletons—inject both <code>Connectivity</code> and the platform interface for full control.</li>
 </ul>
-<h2 id="usage-">Usage 🔧</h2>
-<p>Using the VPN Detector package is straightforward. Simply import the package into your project and use the following code snippet to check if a VPN connection is active:</p>
+<h2 id="installation">Installation</h2>
+<p>Add to your <code>pubspec.yaml</code>:</p>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  vpn_detector: ^&lt;latest_version&gt;
+</code></pre>
+<p>Then run:</p>
+<pre class="language-bash"><code class="language-bash">flutter pub get
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="basic-check">Basic Check</h3>
 <pre class="language-dart"><code class="language-dart">import 'package:vpn_detector/vpn_detector.dart';
 
-final isVpnActive = await VpnDetector().isVpnActive();
+void main() async {
+  final status = await VpnDetector().isVpnActive();
+  if (status == VpnStatus.active) {
+    print('VPN is active');
+  } else {
+    print('VPN is not active');
+  }
+}
 </code></pre>
-<h2 id="contributing-">Contributing 👨‍💻</h2>
-<p>You can contribute by either:</p>
-<ol>
-<li>Making a Pull Request 🛠️</li>
-<li>Opening an Issue 🐛</li>
-</ol>
+<h3 id="stream-listening">Stream Listening</h3>
+<pre class="language-dart"><code class="language-dart">import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:vpn_detector/vpn_detector.dart';
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() =&gt; _MyAppState();
+}
+
+class _MyAppState extends State&lt;MyApp&gt; {
+  late final VpnDetector _detector;
+  late StreamSubscription&lt;VpnStatus&gt; _sub;
+  VpnStatus _status = VpnStatus.notActive;
+
+  @override
+  void initState() {
+    super.initState();
+    _detector = VpnDetector();
+    _sub = _detector.onVpnStatusChanged.listen((status) {
+      setState(() =&gt; _status = status);
+    });
+  }
+
+  @override
+  void dispose() {
+    _sub.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(_status == VpnStatus.active ? 'ACTIVE' : 'NOT ACTIVE');
+  }
+}
+</code></pre>
+<h2 id="contributing">Contributing</h2>
+<p>Contributions are welcome! Please open an issue or submit a pull request.</p>
 </section>
 
 
@@ -118,7 +169,7 @@ final isVpnActive = await VpnDetector().isVpnActive();
 <footer>
   <span class="no-break">
     vpn_detector
-      1.1.0
+      1.2.0
   </span>
   
 </footer>

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:vpn_detector/vpn_detector.dart';
 
 void main() {
@@ -10,40 +9,43 @@ void main() {
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  bool _isVpnActive = false;
-  final _vpnDetectorPlugin = VpnDetector();
+  late final VpnDetector _vpnDetector;
+  late StreamSubscription<VpnStatus> _subscription;
+  VpnStatus _currentStatus = VpnStatus.notActive;
 
   @override
   void initState() {
     super.initState();
-
-    initPlatformState();
+    _vpnDetector = VpnDetector();
+    _initVpnStatus();
+    _listenToStream();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    bool isVpnActive;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      isVpnActive = await _vpnDetectorPlugin.isVpnActive();
-    } on PlatformException {
-      isVpnActive = false;
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
+  Future<void> _initVpnStatus() async {
+    final status = await _vpnDetector.isVpnActive();
     setState(() {
-      _isVpnActive = isVpnActive;
+      _currentStatus = status;
     });
+  }
+
+  void _listenToStream() {
+    _subscription = _vpnDetector.onVpnStatusChanged.listen((status) {
+      setState(() {
+        _currentStatus = status;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _subscription.cancel();
+    super.dispose();
   }
 
   @override
@@ -51,10 +53,29 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('VPN detector example app'),
+          title: const Text('VPN Detector Example'),
         ),
         body: Center(
-          child: Text('VPN active is: $_isVpnActive'),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                'VPN is currently:',
+                style: TextStyle(fontSize: 20),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                _currentStatus == VpnStatus.active ? 'ACTIVE' : 'NOT ACTIVE',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: _currentStatus == VpnStatus.active
+                      ? Colors.green
+                      : Colors.red,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
