@@ -31,6 +31,6 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          slug: aelahmar/vpn_detector
           files: coverage/lcov.info
-          flags: unittests
           fail_ci_if_error: true
