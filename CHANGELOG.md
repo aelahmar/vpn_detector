@@ -1,3 +1,13 @@
+## 1.2.0
+
+### Breaking Changes
+- Changed `VpnDetector.isVpnActive()` return type from `Future<bool>` to `Future<VpnStatus>`, introducing the `VpnStatus` enum.
+
+### Added
+- Introduced `VpnStatus` enum with values `active` and `notActive`.
+- Added `onVpnStatusChanged` stream for real-time VPN status updates.
+- Added `VpnDetector.withDependencies(...)` constructor (annotated `@visibleForTesting`) for dependency injection and TDD.
+
 ## 1.1.1
 
 ### What's Changed

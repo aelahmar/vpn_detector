@@ -53,6 +53,9 @@
 </h1></div>
 
     
+<section class="desc markdown">
+  <p>A utility to detect VPN status and react to connectivity changes.</p>
+</section>
 
 
 
@@ -64,13 +67,20 @@
           <span class="name"><a href="../vpn_detector/VpnDetector/VpnDetector.html">VpnDetector.new</a></span><span class="signature">()</span>
         </dt>
         <dd>
-          
+          Creates a <a href="../vpn_detector/VpnDetector-class.html">VpnDetector</a> with default dependencies.
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="VpnDetector.withDependencies" class="callable">
+          <span class="name"><a href="../vpn_detector/VpnDetector/VpnDetector.withDependencies.html">VpnDetector.withDependencies</a></span><span class="signature">({<span class="parameter" id="withDependencies-param-connectivity"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/connectivity_plus/6.1.4/connectivity_plus/Connectivity-class.html">Connectivity</a></span> <span class="parameter-name">connectivity</span>, </span><span class="parameter" id="withDependencies-param-platform"><span>required</span> <span class="type-annotation"><a href="../vpn_detector_platform_interface/VpnDetectorPlatform-class.html">VpnDetectorPlatform</a></span> <span class="parameter-name">platform</span></span>})</span>
+        </dt>
+        <dd>
+          Creates a <a href="../vpn_detector/VpnDetector-class.html">VpnDetector</a> with injected dependencies for testing.
         </dd>
     </dl>
   </section>
     
   <section
-      class="summary offset-anchor inherited"
+      class="summary offset-anchor"
       id="instance-properties">
     <h2>Properties</h2>
     <dl class="properties">
@@ -83,6 +93,18 @@
 <dd class="inherited">
   The hash code for this object.
   <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="onVpnStatusChanged" class="property">
+  <span class="name"><a href="../vpn_detector/VpnDetector/onVpnStatusChanged.html">onVpnStatusChanged</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../vpn_detector/VpnStatus.html">VpnStatus</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  A stream of <a href="../vpn_detector/VpnStatus.html">VpnStatus</a> that updates whenever the connectivity changes.
+  <div class="features"><span class="feature">no setter</span></div>
 
 </dd>
 
@@ -109,13 +131,13 @@
     <dl class="callables">
         <dt id="isVpnActive" class="callable">
   <span class="name"><a href="../vpn_detector/VpnDetector/isVpnActive.html">isVpnActive</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../vpn_detector/VpnStatus.html">VpnStatus</a></span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  
+  Checks whether VPN is active, returning a <a href="../vpn_detector/VpnStatus.html">VpnStatus</a>.
   
 
 </dd>
@@ -196,7 +218,7 @@
 <footer>
   <span class="no-break">
     vpn_detector
-      1.1.0
+      1.2.0
   </span>
   
 </footer>
