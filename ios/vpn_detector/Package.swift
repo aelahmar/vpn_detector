@@ -13,9 +13,7 @@ let package = Package(
     targets: [
         .target(
             name: "vpn_detector",
-            dependencies: [
-                .product(name: "Flutter", package: "flutter_wrapper")
-            ]
+            path: "Sources/vpn_detector"
         )
     ]
 )
